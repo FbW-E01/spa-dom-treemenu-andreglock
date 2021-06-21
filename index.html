@@ -54,4 +54,16 @@
   </ul>
 
 </body>
+<script>
+  const list = document.getElementById("tree");
+  list.addEventListener("click", (e) => {
+    const child = e.target.children[0];
+    console.log(child);
+    if (child.style.display === "" || child.style.display === "block") {
+      child.style.display = "none";
+    } else if (child.style.display = "none") {
+      child.style.display = "block";
+    }
+  });
+</script>
 </html>
