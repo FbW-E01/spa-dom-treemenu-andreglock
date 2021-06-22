@@ -55,15 +55,28 @@
 
 </body>
 <script>
+  // Whole list selector
   const list = document.getElementById("tree");
+  const items = document.querySelectorAll("li");
+  
+  items.forEach(element => {
+    const span = document.createElement("span");
+    //const text = element.firstChild.textContent; Takes only the text
+    const text = element.childNodes[0]; // Takes the whole node
+    span.appendChild(text);
+    element.prepend(span); // Move original node from parent into span
+  });
+  
   list.addEventListener("click", (e) => {
-    const child = e.target.children[0];
-    console.log(child);
-    if (child.style.display === "" || child.style.display === "block") {
-      child.style.display = "none";
-    } else if (child.style.display = "none") {
-      child.style.display = "block";
+    const sibling = e.target.nextSibling;
+    if (sibling != null) {
+      if (sibling.style.display === "") {
+        sibling.style.display = "none";
+      } else if (sibling.style.display = "none") {
+        sibling.style.display = "";
+      }
     }
   });
+
 </script>
 </html>
